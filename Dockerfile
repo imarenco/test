@@ -10,6 +10,6 @@ ENV PORT=8080
 
 ADD ./ /app
 
-EXPOSE 3000
+EXPOSE 8080
 
 CMD [ "node", "index.js" ]

@@ -36,7 +36,7 @@ UserController.loginUser = async (req, res) => {
 
       TransactionService.create({
         type: CONSTS.transactioNames.login,
-        description: `register user ${user.username}`,
+        description: `login user ${user.username}`,
       });
     } else {
       res.status(404).send();
