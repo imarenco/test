@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+  node-api:
+    image: node-api
+    restart: always
+    build:
+      context: .
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    ports:
+      - "8080:8080"
+networks:
+  db_net:
+    external: true
